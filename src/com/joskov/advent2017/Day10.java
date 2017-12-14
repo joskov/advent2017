@@ -17,15 +17,19 @@ public class Day10 extends Helpers {
         hashNumbers(numbers, input, 1);
         System.out.println("First two numbers multiplied: " + numbers.get(0) * numbers.get(1));
 
-        numbers = getNumbers();
-        input = readInputAdditional();
-        hashNumbers(numbers, input, 64);
-        String hash = compactHash(numbers);
+        String hash = hash(readInputRaw());
         System.out.println("The complete hash is: " + hash);
     }
 
     public static List<Integer> getNumbers() {
         return IntStream.rangeClosed(0, MAX_VALUE).boxed().collect(Collectors.toList());
+    }
+
+    public static String hash(String string) {
+        List<Integer> numbers = getNumbers();
+        List<Integer> input = readInputAdditional(string);
+        hashNumbers(numbers, input, 64);
+        return compactHash(numbers);
     }
 
     private static void hashNumbers(List<Integer> numbers, List<Integer> input, int passes) {
@@ -65,23 +69,27 @@ public class Day10 extends Helpers {
         }
     }
 
-    public static List<Integer> readInputAdditional() {
+    public static String readInputRaw() {
         try {
-            char[] chars = Helpers.read(INPUT).trim().toCharArray();
-            List<Integer> result = new ArrayList<>();
-            for (char c : chars) {
-                result.add((int) c);
-            }
-            result.add(17);
-            result.add(31);
-            result.add(73);
-            result.add(47);
-            result.add(23);
-            return result;
+            return Helpers.read(INPUT).trim();
         } catch (IOException e) {
             System.out.println("Cannot load input file.");
-            return null;
+            return "";
         }
+    }
+
+    public static List<Integer> readInputAdditional(String string) {
+        char[] chars = string.toCharArray();
+        List<Integer> result = new ArrayList<>();
+        for (char c : chars) {
+            result.add((int) c);
+        }
+        result.add(17);
+        result.add(31);
+        result.add(73);
+        result.add(47);
+        result.add(23);
+        return result;
     }
 
     private static String compactHash(List<Integer> numbers) {
