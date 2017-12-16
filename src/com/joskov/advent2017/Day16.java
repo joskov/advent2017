@@ -1,7 +1,6 @@
 package com.joskov.advent2017;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -111,6 +110,4 @@ public class Day16 extends Helpers {
             return string;
         }
     }
-
-
 }
