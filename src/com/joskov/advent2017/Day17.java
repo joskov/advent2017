@@ -27,29 +27,16 @@ public class Day17 extends Helpers {
     }
 
     private static int partTwo() {
-        int index = searchIndex(ITERATIONS_2);
-        return searchValue(ITERATIONS_2, index);
-    }
-
-    private static int searchIndex(int iterations) {
         int size = 1;
         int index = 0;
-        for (int i = 1; i <= iterations; i++) {
+        int result = -1;
+        for (int i = 1; i <= ITERATIONS_2; i++) {
             index = (index + INPUT) % size + 1;
+            if (index == 1) {
+                result = i;
+            }
             size++;
         }
-        return index;
-    }
-
-    private static int searchValue(int iterations, int lastIndex) {
-        int index = lastIndex;
-        for (int i = iterations; i > 0; i--) {
-            index = (index - INPUT - 1) % i;
-            index = index < 0 ? index + i : index;
-            if (index == 1) {
-                return i - 1;
-            }
-        }
-        return -1;
+        return result;
     }
 }
