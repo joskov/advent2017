@@ -68,7 +68,7 @@ public class Day21 extends Helpers {
         return new Image(destinationSize * splits, newPixels);
     }
 
-    private static class Enhancement {
+    public static class Enhancement {
         private final Set<Image> left;
         private final Image right;
 
@@ -93,7 +93,7 @@ public class Day21 extends Helpers {
         }
     }
 
-    private static class Image {
+    public static class Image {
         private final int size;
         private final Set<Pixel> pixels;
 
@@ -203,13 +203,21 @@ public class Day21 extends Helpers {
         }
     }
 
-    private static class Pixel {
+    public static class Pixel {
         private final int x;
         private final int y;
 
-        private Pixel(int x, int y) {
+        public Pixel(int x, int y) {
             this.x = x;
             this.y = y;
+        }
+
+        public int getX() {
+            return x;
+        }
+
+        public int getY() {
+            return y;
         }
 
         @Override
