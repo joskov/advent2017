@@ -28,7 +28,7 @@ public class Day24 extends Helpers {
         List<Connection> connections = left.stream().filter(a -> a.canConnectTo(current)).collect(Collectors.toList());
         int max = 0;
         for (Connection connection : connections) {
-            List<Connection> newLeft = new ArrayList <>(left);
+            List<Connection> newLeft = new ArrayList<>(left);
             newLeft.remove(connection);
             int newCurrent = connection.other(current);
             int compare = iterate(newLeft, newCurrent) + connection.a + connection.b;
@@ -43,7 +43,7 @@ public class Day24 extends Helpers {
         List<Connection> connections = left.stream().filter(a -> a.canConnectTo(current)).collect(Collectors.toList());
         BridgeStats max = new BridgeStats(0, 0);
         for (Connection connection : connections) {
-            List<Connection> newLeft = new ArrayList <>(left);
+            List<Connection> newLeft = new ArrayList<>(left);
             newLeft.remove(connection);
             int newCurrent = connection.other(current);
             BridgeStats compare = maxLength(newLeft, newCurrent).add(1, connection.getStrength());

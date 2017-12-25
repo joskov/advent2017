@@ -115,7 +115,7 @@ public class Day25 extends Helpers {
             return start;
         }
 
-        public Map<String,State> getStates() {
+        public Map<String, State> getStates() {
             return states;
         }
     }

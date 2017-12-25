@@ -58,7 +58,7 @@ public class Day06 extends Helpers {
         }
 
         public static MemoryBank parse(String s) {
-           return new MemoryBank(Integer.parseInt(s));
+            return new MemoryBank(Integer.parseInt(s));
         }
 
         public int reset() {

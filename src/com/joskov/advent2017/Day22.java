@@ -117,7 +117,7 @@ public class Day22 extends Helpers {
         }
     }
 
-    public enum State { CLEAN, WEAKENED, INFECTED, FLAGGED }
+    public enum State {CLEAN, WEAKENED, INFECTED, FLAGGED}
 
     public enum Direction {
         NORTH(0, -1),
